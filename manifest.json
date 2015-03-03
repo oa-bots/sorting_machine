@@ -1,0 +1,17 @@
+{
+  "bot_id": "sorting_machine",
+  "title": "Sorting Machine",
+  "description": "A bot that processes addresses submitted to sorting office",
+  "language": "ruby",
+  "data_type": "address",
+  "files": [
+    "scraper.rb"
+  ],
+  "frequency": "hourly",
+  "publisher": {
+    "name": "Open Addresses",
+    "url": "http://openaddressesuk.org",
+    "terms": "",
+    "terms_url": ""
+  }
+}
