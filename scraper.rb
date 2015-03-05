@@ -34,8 +34,11 @@ queue = IronMQ.new(ENV['TOKEN'], ENV['ID'], ENV['QUEUE'], 'mq-aws-eu-west-1.iron
 
 msg = queue.get
 while !msg.nil? do
-  # We just need to dump to stdout, no transformation required. Don't even need to parse it.
-  puts msg["body"]
+  # Check we have the basics required for the schema, paon and town
+  address = JSON.parse msg["body"]
+  if address['paon'] && address['town']
+    puts msg["body"]
+  end
   # Clear it from the queue unless in draft
   queue.delete msg unless ENV['RUN_TYPE'] == "draft"
   # and get the next one
